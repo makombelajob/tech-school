@@ -1,6 +1,13 @@
 :root{
-    font-size: 15px;
+    font-size: 10px;
     --text-black : black;
+    --text-white : white;
+    --bg-caption : rgba(173, 216, 230, 0.52);
+    --bg-atom: cyan;
+    --bg-game: blue;
+    --bg-plane: purple;
+    --bg-swim: green;
+    --bg-walk: lightgreen;
 }
 img{
     width: 100%;
@@ -74,27 +81,89 @@ body{
         }
     }
     main{
+        h2{
+            font-size: 2rem;
+            text-align: center;
+            margin-block: 2rem;
+        }
         #hero{
             h1{
-                text-align: center;
-                font-weight: 700;
+                font-size: 3rem;
                 text-transform: uppercase;
-                margin: 1rem;
-                font-family: "Roboto", sans-serif;
+                text-align: center;
+                margin-block: 1rem;
+                font-weight: 900;
             }
             .slide{
+                position: relative;
+                border-radius: 10px 20px 10px 20px;
+                overflow: hidden;
+                margin-block: 1.5rem;
                 .elements{
                     .element{
                         display: none;
+                        position: relative;
                         &.active{
                             display: block;
+                        }
+                        figcaption{
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            background-color: var(--bg-caption);
+                            text-align: center;
+                            font-size: 1.5rem;
+                            padding: 0.5rem;
+                            border-radius: 10px;
+                            color: var(--text-black);
                         }
                     }
                 }
                 #left,
                 #right{
-
+                    fill: var(--text-white);
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    cursor: pointer;
                 }
+                #left{
+                    left: 0;
+                }
+                #right{
+                    right: 0;
+                }
+            }
+        }
+        #activity{
+
+            #atom{
+                background-color: var(--bg-atom);
+            }
+            #game{
+                background-color: var(--bg-game);
+            }
+            #plane{
+                background-color: var(--bg-plane);
+            }
+            #swim{
+                background-color: var(--bg-swim);
+            }
+            #walk{
+                background-color: var(--bg-walk);
+            }
+            #swim2{
+                background-color: grey;
+            }
+        }
+        #partenaire{
+            width: 80%;
+            margin: auto;
+            article figure img {
+                width: 20%;
+                border-radius: 50%;
+                object-fit: cover;
             }
         }
     }

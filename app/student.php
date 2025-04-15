@@ -18,12 +18,12 @@
 <body>
 <header>
     <nav>
-        <a href="index.php">
+        <a href="index.html">
             <img src="assets/Logo.png" alt="Logo du site">
         </a>
         <div class="open">
             <ul>
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href="index.html">Accueil</a></li>
                 <li><a href="about.php">A propos</a></li>
                 <li><a href="login.php">Login</a></li>
                 <li><a href="signup.php">Signup</a></li>
@@ -123,7 +123,7 @@
     <div id="footer-main">
         <nav>
             <ul>
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href="index.html">Accueil</a></li>
                 <li><a href="about.php">A propos</a></li>
                 <li><a href="login.php">Login</a></li>
                 <li><a href="signup.php">Signup</a></li>

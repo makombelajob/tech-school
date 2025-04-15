@@ -12,7 +12,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js" type="module"></script>
+    <!--<script src="js/script.js" type="module"></script>-->
     <title>tech-school</title>
 </head>
 <body>
