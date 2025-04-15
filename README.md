@@ -59,5 +59,6 @@ I poured my heart into this project ❤️, and I'm proud to share it.
    ```bash
    git clone https://github.com/makombelajob/tech-school.git
    cd tech-school
+   docker compose up
 
 
