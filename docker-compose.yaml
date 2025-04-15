@@ -1,0 +1,70 @@
+services:
+    apache:
+        image: php:8.5-apache
+        container_name: apache_tech_school
+        build:
+            context: php
+        ports:
+            -   "8080:80"
+        volumes:
+            -   ./app:/var/www/html/
+        depends_on:
+            -   mysql
+            
+    mysql:
+        image: mysql:8.0
+        container_name: mysql_tech_school
+        environment:
+            MYSQL_ROOT_PASSWORD: techAdmin7791
+            MYSQL_DATABASE: techSchool
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: adminTech7791
+        ports:
+            -   "3306:3306"
+        volumes:
+            -   ./mysql:/var/lib/mysql
+    
+    phpmyadmin:
+        image: phpmyadmin
+        container_name: phpmyadmin_tech_school
+        ports:
+            -   "8081:80"
+        environment:
+            PMA_HOST: mysql
+            PMA_PASSWORD: techAdmin7791
+        depends_on:
+            -   mysql
+    
+    postgresql:
+        image: bitnami/postgresql
+        container_name: postgres_tech_school
+        environment:
+            POSTGRES_USER: adminUser
+            POSTGRES_PASSWORD: adminUser7791
+            POSTGRES_DB: techSchool
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./postgres:/bitnami/postgresql
+    
+    pgadmin:
+        image: dpage/pgadmin4
+        container_name: pgadmin_tech_school
+        environment:
+            PGADMIN_DEFAULT_EMAIL: admin@techschool.fr
+            PGADMIN_DEFAULT_PASSWORD: adminTechSchool
+        ports:
+            -   "8082:80"
+        depends_on:
+            -   postgresql
+    
+    mail_hog:
+        image: mailhog/mailhog
+        container_name: mailhog_tech_school
+        logging:
+            driver: 'none'
+        ports:
+            -   "1025:1025"
+            -   "8025:8025"
+
+    

@@ -1,0 +1,101 @@
+:root{
+    font-size: 15px;
+    --text-black : black;
+}
+img{
+    width: 100%;
+    vertical-align: middle;
+}
+body{
+    font-family: "Ubuntu", serif;
+    header{
+        margin: 0.5rem;
+        box-shadow: 1px 1px rgba(135, 206, 250, 0.38);
+        border-radius: 10px 5px;
+        padding: 0.5rem;
+        nav{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.5rem;
+            a{
+                margin-right: auto;
+                img{
+                    width: 40px;
+                    border-radius: 50%;
+                }
+            }
+            .open{
+                display: none;
+                font-size: 1.5rem;
+                position: absolute;
+                background-color: rgba(100, 149, 237, 0.51);
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                ul{
+                    position: inherit;
+                    list-style: none;
+                    background-color: cyan;
+                    bottom: 0;
+                    top: 0;
+                    left: 0;
+                    right: 30%;
+                    padding: 2rem;
+                    li {
+                        padding: 0.5rem;
+                        a{
+                            text-decoration: none;
+                            color: var(--text-black);
+                            padding: 0.5rem;
+                        }
+                    }
+                }
+                #close{
+                    stroke: var(--text-black);
+                    position: inherit;
+                    top: 10px;
+                    left: 10px;
+                    cursor: pointer;
+
+                }
+            }
+            #theme-switch{
+                margin-left: 1rem;
+            }
+            #burger{
+                stroke: var(--text-black) ;
+            }
+            #theme-switch,
+            #burger{
+                cursor: pointer;
+            }
+        }
+    }
+    main{
+        #hero{
+            h1{
+                text-align: center;
+                font-weight: 700;
+                text-transform: uppercase;
+                margin: 1rem;
+                font-family: "Roboto", sans-serif;
+            }
+            .slide{
+                .elements{
+                    .element{
+                        display: none;
+                        &.active{
+                            display: block;
+                        }
+                    }
+                }
+                #left,
+                #right{
+
+                }
+            }
+        }
+    }
+}
