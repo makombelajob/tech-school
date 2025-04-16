@@ -152,7 +152,7 @@ formSignup.addEventListener("submit", function(e) {
     e.preventDefault();
     if(nameValid && lastNameValid && emailValid && pwdValid && pwdConfirmValid && dbsValid  && rgpdValid) {
         alert("Message envoyer");
-        location.href = "index.html";
+        location.href = "index.php";
     }else{
         const eventErrors = new Event("change");
         nameValid.dispatchEvent(eventErrors);

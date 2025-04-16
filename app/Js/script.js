@@ -125,7 +125,7 @@ function formContact() {
        e.preventDefault();
        if(emailValid && sujetValid && msgValid && rgpdValid) {
            alert("Message envoyer");
-           location.href = "index.html";
+           location.href = "index.php";
        }else{
            const eventErrors = new Event("change");
            emailField.dispatchEvent(eventErrors);

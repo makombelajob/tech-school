@@ -20,7 +20,7 @@ body{
         box-shadow: 1px 1px rgba(135, 206, 250, 0.38);
         border-radius: 10px 5px;
         padding: 0.5rem;
-        nav{
+        .nav{
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -165,6 +165,34 @@ body{
                 border-radius: 50%;
                 object-fit: cover;
             }
+        }
+        #equip{
+            article figure img {
+                width: 30%;
+                border-radius: 50%;
+            }
+        }
+        #contact{
+            form{
+                .image{
+                    text-align: center;
+                    img{
+                        width: 20%;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+    footer{
+        #footer-main{
+            font-size: 1.5rem;
+            background-color: lightslategray;
+        }
+        #footer-foot{
+            background-color: rgba(0, 0, 0, 0.67);
+            color: var(--text-white);
+            padding-block: 1rem;
         }
     }
 }
