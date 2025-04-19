@@ -9,9 +9,9 @@ services:
         volumes:
             -   ./app:/var/www/html/
         depends_on:
-            -   mysql
+            -   database
             
-    mysql:
+    database:
         image: mysql:8.0
         container_name: mysql_tech_school
         environment:
@@ -33,7 +33,7 @@ services:
             PMA_HOST: mysql
             PMA_PASSWORD: techAdmin7791
         depends_on:
-            -   mysql
+            -   database
     
     postgresql:
         image: bitnami/postgresql
