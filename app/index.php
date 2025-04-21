@@ -1,4 +1,25 @@
-<?php require_once 'includes/header.php';?>
+<?php require_once 'includes/header.php';
+// Verification of the method
+$errorsInput = [];
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+    // Checking all input
+    $email = $_POST['email'] ?? '';
+    $sujet = htmlspecialchars(trim($_POST['sujet'])) ?? '';
+    $message = htmlspecialchars(trim($_POST['message'])) ?? '';
+
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $errorsInput['email'] = 'L\'email doit être valide';
+    }
+    if(empty($sujet) || strlen($sujet) < 5){
+        $errorsInput['sujet'] = 'Le sujet doit être valide !';
+    }
+    if(empty($message) || strlen($message) > 30){
+        $errorsInput['message'] = 'Le message n\'est pas valide ! ';
+    }
+
+}
+?>
     <main class="container">
         <section class="row" id="hero">
             <h1>Tech-School</h1>
@@ -36,9 +57,9 @@
                 </article>
             </div>
         </section>
-        <section id="card" class="row mx-1">
+        <section id="card" class="row justify-content-between">
             <h2 class="text-center my-4 fs-1">A propos de nous</h2>
-            <article class="col-md-6 card mb-3">
+            <article class="col-md-5 card mb-3">
                 <img class="card-image" src="assets/real/pixlr-image-generator-0436f8d9-4481-4bf6-aec0-ddbed88917.png" alt="Image des écoliers">
                 <div class="card-body">
                     <h2 class="card-title fs-1">Titre</h2>
@@ -48,7 +69,7 @@
                     </div>
                 </div>
             </article>
-            <article class="col-md-6 card mb-3">
+            <article class="col-md-5 card mb-3">
                 <img class="card-image" src="assets/real/pixlr-image-generator-0436f8d9-4481-4bf6-aec0-ddbed88916.png" alt="Image des écoliers">
                 <div class="card-body">
                     <h2 class="card-title fs-1">Titre</h2>
@@ -58,7 +79,7 @@
                     </div>
                 </div>
             </article>
-            <article class="col-md-6 card mb-3">
+            <article class="col-md-5 card mb-3">
                 <img class="card-image" src="assets/real/pixlr-image-generator-0436f8d9-4481-4bf6-aec0-ddbed88913.png" alt="Image des écoliers">
                 <div class="card-body">
                     <h2 class="card-title fs-1">Titre</h2>
@@ -68,7 +89,7 @@
                     </div>
                 </div>
             </article>
-            <article class="col-md-6 card mb-3">
+            <article class="col-md-5 card mb-3">
                 <img class="card-image" src="assets/real/pixlr-image-generator-0436f8d9-4481-4bf6-aec0-ddbed88916.png" alt="Image des écoliers">
                 <div class="card-body">
                     <h2 class="card-title fs-1">Titre</h2>
@@ -82,8 +103,8 @@
         <section class="row" id="activity">
             <h2>Nos activités</h2>
             <div class="col-md-12" id="school-activity"  >
-                <div class="row">
-                    <article class="col-md-4 card mb-3 text-center" id="atom">
+                <div class="row justify-content-between">
+                    <article class="col-md-3 card mb-3 text-center" id="atom">
                         <div>
                             <svg class="py-3" width="100" height="100" xmlns:xlink="http://www.w3.org/2000/svg" fill="">
                                 <use href="assets/sprites.svg#atom"></use>
@@ -95,7 +116,7 @@
                         </div>
                     </article>
 
-                    <article class="col-md-4 card mb-3 text-center" id="game" >
+                    <article class="col-md-3 card mb-3 text-center" id="game" >
                         <div>
                             <svg class="py-3" width="100" height="100" xmlns:xlink="http://www.w3.org/2000/svg" fill="">
                                 <use href="assets/sprites.svg#game"></use>
@@ -107,7 +128,7 @@
                         </div>
                     </article>
 
-                    <article class="col-md-4 card mb-3 text-center" id="plane">
+                    <article class="col-md-3 card mb-3 text-center" id="plane">
                         <div>
                             <svg class="py-3" width="100" height="100" xmlns:xlink="http://www.w3.org/2000/svg" fill="">
                                 <use href="assets/sprites.svg#plane"></use>
@@ -118,7 +139,9 @@
                             <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, nemo.</p>
                         </div>
                     </article>
-                    <article class="col-md-4 card mb-3 text-center" id="swim">
+                </div>
+                <div class="row justify-content-between">
+                    <article class="col-md-3 card mb-3 text-center" id="swim">
                         <div>
                             <svg class="py-3" width="100" height="100" xmlns:xlink="http://www.w3.org/2000/svg" fill="">
                                 <use href="assets/sprites.svg#swim"></use>
@@ -129,7 +152,7 @@
                             <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, nemo.</p>
                         </div>
                     </article>
-                    <article class="col-md-4 card mb-3 text-center" id="walk">
+                    <article class="col-md-3 card mb-3 text-center" id="walk">
                         <div>
                             <svg class="py-3" width="100" height="100" xmlns:xlink="http://www.w3.org/2000/svg" fill="">
                                 <use href="assets/sprites.svg#walk"></use>
@@ -140,7 +163,7 @@
                             <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, nemo.</p>
                         </div>
                     </article>
-                    <article class="col-md-4 card mb-3 text-center" id="swim2">
+                    <article class="col-md-3 card mb-3 text-center" id="swim2">
                         <div>
                             <svg class="py-3" width="100" height="100" xmlns:xlink="http://www.w3.org/2000/svg" fill="">
                                 <use href="assets/sprites.svg#swim"></use>
@@ -218,29 +241,28 @@
                 <h2>Notre équipe</h2>
             </div>
             <div class="col-12">
-               <div class="row ms-4 m-auto col-md-12">
-
-                   <article class="col-12 col-md-6">
+               <div class="row ms-4 justify-content-between">
+                   <article class="col-12 col-md-6 col-lg-3">
                        <figure class="row">
-                           <img class="col-6" src="assets/equip/professor_chemistry.jpg" alt="Image du professeur de chimie">
+                           <img class="col-6 col-md" src="assets/equip/professor_chemistry.jpg" alt="Image du professeur de chimie">
                            <figcaption class="col-6 m-auto">
                                <h3>Professeur de chimie</h3>
                                <h4>Esther Clair</h4>
                            </figcaption>
                        </figure>
                    </article>
-                   <article class="col-12 col-md-6">
+                   <article class="col-12 col-md-6 col-lg-3">
                        <figure class="row">
-                           <img class="col-6" src="assets/equip/professor_math.jpg" alt="L'image du professeur de Math">
+                           <img class="col-6 col-md" src="assets/equip/professor_math.jpg" alt="L'image du professeur de Math">
                            <figcaption class="col-6 m-auto">
                                <h3>Professeur de Math</h3>
                                <h4>Pauline Marie</h4>
                            </figcaption>
                        </figure>
                    </article>
-                   <article class="col-12 col-md-6 m-auto">
+                   <article class="col-12 col-md-6 col-lg-3">
                        <figure class="row">
-                           <img class="col-6" src="assets/equip/director.jpg" alt="L'image du directeur">
+                           <img class="col-6 col-md" src="assets/equip/director.jpg" alt="L'image du directeur">
                            <figcaption class="col-6 m-auto">
                                <h3 class="">Directeur</h3>
                                <h4>Patrick Erick</h4>
@@ -262,20 +284,20 @@
             <div class="col-12">
                 <h2>Nous contacter</h2>
             </div>
-            <form action="" id="formContact" class="col-12 col-md-10 m-auto">
+            <form action="" method="post" id="formContact" class="col-12 col-md-10 m-auto">
                 <div class="image">
                     <img src="assets/Logo.png" alt="Logo du site">
                 </div>
                 <div class="mb-3 position-relative" >
                     <label class="form-label fs-1 my-3" for="validationTooltip01">Email</label>
-                    <input class="form-control fs-1" type="text" id="validationTooltip01" placeholder="Entrez votre email">
+                    <input class="form-control fs-1" type="text" id="validationTooltip01" placeholder="Entrez votre email" name="email">
                     <div class="invalid-tooltip">
-                        L'email doit être valid
+                        L'email doit être valide
                     </div>
                 </div>
                 <div id="sujetField">
                     <label class="label-form fs-1 my-3" for="validationTooltip02">Sujet</label>
-                    <input class="form-control fs-1" type="text" id="validationTooltip02" placeholder="Entrez votre sujet">
+                    <input class="form-control fs-1" type="text" id="validationTooltip02" placeholder="Entrez votre sujet" name="subject">
                     <div class="invalid-tooltip">
                         Le sujet ne doit pas être vide (5 caractères minimum)
                     </div>
@@ -288,7 +310,7 @@
                     </div>
                 </div>
                 <div class="btn-group">
-                    <input class="me-3" type="checkbox" id="validationFormCheck1"/>
+                    <input name="rgpd" class="me-3" type="checkbox" id="validationFormCheck1"/>
                     <label class="label-form fs-1 my-3" for="validationFormCheck1">J'acceptes les conditions rgpd</label>
                     <div class="invalid-tooltip">
                         Vous devez cocher cette case !
