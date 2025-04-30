@@ -1,24 +1,5 @@
 <?php require_once 'includes/header.php';
 // Verification of the method
-$errorsInput = [];
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-
-    // Checking all input
-    $email = $_POST['email'] ?? '';
-    $sujet = htmlspecialchars(trim($_POST['sujet'])) ?? '';
-    $message = htmlspecialchars(trim($_POST['message'])) ?? '';
-
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        $errorsInput['email'] = 'L\'email doit être valide';
-    }
-    if(empty($sujet) || strlen($sujet) < 5){
-        $errorsInput['sujet'] = 'Le sujet doit être valide !';
-    }
-    if(empty($message) || strlen($message) > 30){
-        $errorsInput['message'] = 'Le message n\'est pas valide ! ';
-    }
-
-}
 ?>
     <main class="container">
         <section class="row" id="hero">
