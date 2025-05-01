@@ -3,39 +3,52 @@
 ?>
     <main class="container">
         <section class="row" id="hero">
-            <h1>Tech-School</h1>
-            <div class="">
-                <article class="slide">
-                    <div class="elements">
-                        <figure class="element active">
-                            <img src="assets/Slide/pixlr-image-generator-0436f8d9-4481-4bf6-aec0-ddbed88917a7.png" alt="Image du slide">
-                            <figcaption class="caption">
-                                <h2>tech-School</h2>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                        <figure class="element">
-                            <img src="assets/Slide/pixlr-image-generator-c62676bf-e07b-463c-912f-f5da2115b396.png" alt="image du slide">
-                            <figcaption class="caption">
-                                <h2>tech-School</h2>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                        <figure class="element">
-                            <img src="assets/Slide/pixlr-image-generator-f34d016c-c9d2-4688-a45b-b00be01b0c32.png" alt="Image du slide">
-                            <figcaption class="caption">
-                                <h2>tech-School</h2>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
+            <h1 class="text-center text-uppercase fw-bolder m-3 ">Tech-School</h1>
+            <div class="carousel slide">
+                <div id="carousel" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-                    <svg id="left" width="50" height="50">
-                        <use href="assets/sprites.svg#left"></use>
-                    </svg>
-                    <svg id="right" width="50" height="50" xmlns:xlink="http://www.w3.org/2000/svg" >
-                        <use href="assets/sprites.svg#right"></use>
-                    </svg>
-                </article>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <figure class="element active">
+                                <img class="d-block w-100" src="assets/Slide/pixlr-image-generator-0436f8d9-4481-4bf6-aec0-ddbed88917a7.png" alt="Image du slide" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice">
+                                <figcaption class="carousel-caption">
+                                    <h2 class="text-black fs-3">tech-School</h2>
+                                    <p class="text-black fs-3">Lorem ipsum dolor sit amet.</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="element active">
+                                <img class="d-block w-100" src="assets/Slide/pixlr-image-generator-c62676bf-e07b-463c-912f-f5da2115b396.png" alt="Image du slide" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice">
+                                <figcaption class="carousel-caption">
+                                    <h2 class="text-black fs-3">tech-School</h2>
+                                    <p class="text-black fs-3">Lorem ipsum dolor sit amet.</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="element active">
+                                <img class="d-block w-100" src="assets/Slide/pixlr-image-generator-f34d016c-c9d2-4688-a45b-b00be01b0c32.png" alt="Image du slide" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice">
+                                <figcaption class="carousel-caption">
+                                    <h2 class="text-black fs-3">tech-School</h2>
+                                    <p class="text-black fs-3">Lorem ipsum dolor sit amet.</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </section>
         <section id="card" class="row justify-content-between">
