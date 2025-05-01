@@ -1,8 +1,8 @@
 <?php
 const DBHOST = 'database';
-const DBNAME = 'sessions_base';
-const DBUSER = 'sessions_admin';
-const DBPASS = 'azerty';
+const DBNAME = 'techSchool';
+const DBUSER = 'admin';
+const DBPASS = 'adminTech7791';
 
 try{
     $dsn = 'mysql:host=' . DBHOST . ';dbname=' . DBNAME;
