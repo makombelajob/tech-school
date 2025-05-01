@@ -6,85 +6,90 @@ if(!isset($_SESSION['user'])){
 }
 include_once 'includes/header.php';
 ?>
-<main>
-    <section id="students_infos">
-        <form action="logout.php">
-            <button class="btn btn-secondary" type="submit">Logout</button>
-        </form>
+<main class="container">
+    <div class="row">
+        <section id="students_infos">
+            <form action="logout.php">
+                <button class="btn btn-secondary" type="submit">Logout</button>
+            </form>
 
-        <h1>BIENVENU "STUDENTS NAME"</h1>
-        <article class="infos_general">
-            <h2>Informations générales</h2>
-            <p>Prochaines vacances du 05 mai au 15 mai</p>
-        </article>
-        <article class="infos_students">
-            <h2>Nom : <span>Students</span></h2>
-            <h2>Prénom : <span>Students</span></h2>
-            <h3>Class: 1ère</h3>
-            <h4>Identifiants</h4>
-        </article>
-        <article class="points">
-            <h2>Cours 1 <span>10/20</span></h2>
-            <h2>Cours 2 <span>10/20</span></h2>
-            <h2>Cours 3 <span>10/20</span></h2>
-            <h2>Cours 4 <span>10/20</span></h2>
-        </article>
-        <article class="remarques">
-            <p>Les remarques administratives</p>
-        </article>
-    </section>
-    <section id="courses_details">
-        <article class="courseOne">
-            <h2>Cours_1 : <span>11/20</span></h2>
-            <aside>
-                <h3>Remarques</h3>
-                <p>Tu dois t'améliorer sur partie 2 du cours.</p>
-                <p>L'erreur 3 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>
-            </aside>
-        </article>
-        <article class="courseOne">
-            <h2>Cours_2 : <span>11/20</span></h2>
-            <aside>
-                <h3>Remarques</h3>
-                <p>Tu dois t'améliorer sur partie 2 du cours.</p>
-                <p>L'erreur 3 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>
-            </aside>
-        </article>
-        <article class="courseOne">
-            <h2>Cours_3 : <span>11/20</span></h2>
-            <aside>
-                <h3>Remarques</h3>
-                <p>Tu dois t'améliorer sur partie 2 du cours.</p>
-                <p>L'erreur 3 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>
-            </aside>
-        </article>
-        <article class="courseOne">
-            <h2>Cours_4 : <span>11/20</span></h2>
-            <aside>
-                <h3>Remarques</h3>
-                <p>Tu dois t'améliorer sur partie 2 du cours.</p>
-                <p>L'erreur 3 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>
-            </aside>
-        </article>
-    </section>
-    <section id="students_contact">
-        <h2>Contactez la secrétaire</h2>
-        <form action="">
-            <div class="sujet">
-                <label for="sujet">Sujet</label>
-                <select name="sujet" id="sujet">
-                    <option value="">*** choisir un sujet ***</option>
-                    <option value="courses">Cours</option>
-                    <option value="admin">Administration</option>
-                </select>
+            <h1>Bienvenu <span class="text-uppercase text-primary"><?= $_SESSION['user']['lastname'] . ' ' . $_SESSION['user']['firstname'];?></span></h1>
+            <article class="text-center bg-warning rounded-2">
+                <h2>Informations générales</h2>
+                <p class="fs-2">Prochaines vacances du 05 mai au 15 mai</p>
+            </article>
+            <div class="col-12">
+                <article class="bg-secondary text-white text-center p-2">
+                    <h2>Nom : <span><?= $_SESSION['user']['lastname'];?></span></h2>
+                    <h2>Prénom : <span><?= $_SESSION['user']['firstname'];?></span></h2>
+                    <h3>Class: 1ère</h3>
+                    <h4>Identifiant : <?= $_SESSION['user']['id'];?></h4>
+                </article>
+                <article class="bg-info rounded-5 p-3 my-3">
+                    <h2>Cours 1 <span>10/20</span></h2>
+                    <h2>Cours 2 <span>10/20</span></h2>
+                    <h2>Cours 3 <span>10/20</span></h2>
+                    <h2>Cours 4 <span>10/20</span></h2>
+                </article>
             </div>
-            <div class="message">
-                <label for="message">Message</label>
-                <textarea name="message" id="message" cols="30" rows="10"></textarea>
-            </div>
-            <div class="btnSubmit">
-                <button type="submit" disabled>Envoyer</button>
-            </div>
-        </form>
-    </section>
+            <article class="remarques">
+                <p>Les remarques administratives</p>
+            </article>
+        </section>
+        <section id="courses_details">
+            <article class="courseOne">
+                <h2>Cours_1 : <span>11/20</span></h2>
+                <aside>
+                    <h3>Remarques</h3>
+                    <p>Tu dois t'améliorer sur partie 2 du cours.</p>
+                    <p>L'erreur 3 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>
+                </aside>
+            </article>
+            <article class="courseOne">
+                <h2>Cours_2 : <span>11/20</span></h2>
+                <aside>
+                    <h3>Remarques</h3>
+                    <p>Tu dois t'améliorer sur partie 2 du cours.</p>
+                    <p>L'erreur 3 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>
+                </aside>
+            </article>
+            <article class="courseOne">
+                <h2>Cours_3 : <span>11/20</span></h2>
+                <aside>
+                    <h3>Remarques</h3>
+                    <p>Tu dois t'améliorer sur partie 2 du cours.</p>
+                    <p>L'erreur 3 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>
+                </aside>
+            </article>
+            <article class="courseOne">
+                <h2>Cours_4 : <span>11/20</span></h2>
+                <aside>
+                    <h3>Remarques</h3>
+                    <p>Tu dois t'améliorer sur partie 2 du cours.</p>
+                    <p>L'erreur 3 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>
+                </aside>
+            </article>
+        </section>
+        <section >
+            <h2>Contactez la secrétaire</h2>
+            <form action="">
+                <div class="sujet">
+                    <label class="form-label fs-1 my-3" for="sujet">Sujet</label>
+                    <select class="form-control fs-2 text-center" name="sujet" id="sujet">
+                        <option value="">*** choisir un sujet ***</option>
+                        <option value="courses">Cours</option>
+                        <option value="admin">Administration</option>
+                    </select>
+                </div>
+                <div class="message">
+                    <label class="form-label fs-1 my-3" for="message">Message</label>
+                    <textarea class="form-control fs-2" name="message" id="message" cols="30" rows="10"></textarea>
+                </div>
+                <div class="text-center my-3">
+                    <button class="btn btn-primary fs-2" type="submit" >Envoyer</button>
+                </div>
+            </form>
+        </section>
+    </div>
 </main>
+<?php include_once 'includes/footer.php'; ?>

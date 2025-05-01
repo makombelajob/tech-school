@@ -54,7 +54,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             exit;
         }
         $_SESSION['user'] = [
-            'id' => $user['user_id']
+            'id' => $user['user_id'],
+            'lastname' => $user['lastname'],
+            'firstname' => $user['firstname'],
+            'email' => $user['email']
         ];
         if($role === 'student'){
             header('Location: student.php');
