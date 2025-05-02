@@ -52,7 +52,9 @@
             </div>
         </section>
         <section id="card" class="row justify-content-between">
-            <h2 class="text-center my-4 fs-1">A propos de nous</h2>
+            <div class="text-center my-3">
+                <h2 class="fs-1 text-uppercase my-3">A propos de nous</h2>
+            </div>
             <article class="col-md-5 card mb-3">
                 <img class="card-image" src="assets/real/pixlr-image-generator-0436f8d9-4481-4bf6-aec0-ddbed88917.png" alt="Image des écoliers">
                 <div class="card-body">
@@ -95,7 +97,9 @@
             </article>
         </section>
         <section class="row" id="activity">
-            <h2>Nos activités</h2>
+            <div class="text-center my-3">
+                <h2 class="fs-1 text-uppercase my-3">Nos activités</h2>
+            </div>
             <div class="col-md-12" id="school-activity"  >
                 <div class="row justify-content-between">
                     <article class="col-md-3 card mb-3 text-center" id="atom">
@@ -173,7 +177,7 @@
         </section>
         <section id="partenaire" class="row text-center">
             <div class="col-12 my-3">
-                <h2>Nos parténaires</h2>
+                <h2 class="fs-1 text-uppercase my-3">Nos parténaires</h2>
             </div>
             <article class="col-md-4 m-auto">
                 <figure class="">
@@ -231,8 +235,8 @@
             </article>
         </section>
         <section id="equip" class="row">
-            <div class="col-12">
-                <h2>Notre équipe</h2>
+            <div class="col-12 text-center">
+                <h2 class="fs-1 text-uppercase my-3">Notre équipe</h2>
             </div>
             <div class="col-12">
                <div class="row ms-4 justify-content-between">
@@ -315,5 +319,12 @@
                 </div>
             </form>
         </section>
+        <div class="position-fixed bottom-0 end-0 m-4">
+            <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="lightblue" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
+                </svg>
+            </a>
+        </div>
     </main>
 <?php require_once 'includes/footer.php'; ?>
