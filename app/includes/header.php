@@ -25,9 +25,12 @@
                     <img src="../assets/Logo.png" alt="Logo du site">
                 </a>
             </div>
-            <div class="col col-lg-10">
+            <div class="d-none col-lg-10 d-lg-flex justify-content-between">
+                <?php include_once 'options.php';?>
+            </div>
+            <div class="col col-lg-1">
                 <div class="dropdown">
-                    <div class="dropdown-menu dropdown-menu-text-info-emphasis d-lg-flex justify-content-between" id="collapse">
+                    <div class="dropdown-menu dropdown-menu-text-info-emphasis d-lg-none" id="collapse">
                         <ul class="list-unstyled d-md-flex flex-lg-row flex-column mb-0">
                             <li><a class="text-decoration-none fs-4 text-black p-2 dropdown-item active" href="../index.php">Accueil</a></li>
                             <li><a class="text-decoration-none fs-4 text-black p-2 dropdown-item" href="../about.php">A propos</a></li>
