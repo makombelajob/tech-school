@@ -24,7 +24,7 @@ include_once 'includes/header.php';
                         <option value="student">student</option>
                         <option value="parent">parent</option>
                         <option value="teacher">teacher</option>
-                        <option value="admin">admin</option>
+                        <option value="administrator">administrator</option>
                     </select>
                 </div>
                 <div class="text-center my-3">

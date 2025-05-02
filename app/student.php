@@ -1,9 +1,5 @@
 <?php
-session_start();
-if(!isset($_SESSION['user'])){
-    header('Location: login.php');
-    exit;
-}
+include_once 'includes/verify_session.php';
 include_once 'includes/header.php';
 ?>
 <main class="container">

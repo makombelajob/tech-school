@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         header('Location: login.php');
         exit;
     }
-    if($role !== 'admin' && $role !== 'teacher' && $role !== 'parent' && $role !== 'student'){
+    if($role !== 'administrator' && $role !== 'teacher' && $role !== 'parent' && $role !== 'student'){
         $_SESSION['errors']['role'] = 'Veuillez choisir un de 4 choix';
         header('Location: login.php');
         exit;
@@ -57,7 +57,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             'id' => $user['user_id'],
             'lastname' => $user['lastname'],
             'firstname' => $user['firstname'],
-            'email' => $user['email']
+            'email' => $user['email'],
+            'name' => $user['name']
         ];
         if($role === 'student'){
             header('Location: student.php');
@@ -71,7 +72,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             header('Location: teacher.php');
             exit;
         }
-        if($role === 'admin'){
+        if($role === 'administrator'){
             header('Location: adminBoard.php');
             exit;
         }

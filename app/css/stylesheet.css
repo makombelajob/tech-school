@@ -13,39 +13,47 @@ img{
     width: 100%;
     vertical-align: middle;
 }
-body{
+body {
     font-family: "Ubuntu", serif;
-    header{
+
+    header {
         margin: 0.5rem;
         box-shadow: 1px 1px rgba(135, 206, 250, 0.38);
         border-radius: 10px 5px;
         padding: 0.5rem;
-        .nav{
+
+        .nav {
             display: flex;
             justify-content: flex-start;
             align-items: center;
             gap: 0.5rem;
-            a{
+
+            a {
                 margin-right: auto;
-                img{
+
+                img {
                     width: 40px;
                     border-radius: 50%;
                 }
             }
-            #theme-switch{
+
+            #theme-switch {
                 margin-left: 1rem;
             }
-            #burger{
-                stroke: var(--text-black) ;
+
+            #burger {
+                stroke: var(--text-black);
             }
+
             #theme-switch,
-            #burger{
+            #burger {
                 cursor: pointer;
             }
         }
     }
-    main{
-        #hero{
+
+    main {
+        #hero {
             .carousel-control-prev, .carousel-control-next {
                 width: 80px;
                 height: 80px;
@@ -57,85 +65,64 @@ body{
                 background-size: 100% 100%;
                 width: 100%;
                 height: 100%;
-                //background-image: none;
+            / / background-image: none;
             }
 
         }
-        #activity{
 
-            #atom{
+        #activity {
+
+            #atom {
                 background-color: var(--bg-atom);
             }
-            #game{
+
+            #game {
                 background-color: var(--bg-game);
             }
-            #plane{
+
+            #plane {
                 background-color: var(--bg-plane);
             }
-            #swim{
+
+            #swim {
                 background-color: var(--bg-swim);
             }
-            #walk{
+
+            #walk {
                 background-color: var(--bg-walk);
             }
-            #swim2{
+
+            #swim2 {
                 background-color: grey;
             }
         }
-        #partenaire{
+
+        #partenaire {
             article figure img {
                 width: 20%;
                 border-radius: 50%;
                 object-fit: cover;
             }
         }
-        #equip{
+
+        #equip {
             article figure img {
                 width: 30%;
                 border-radius: 50%;
             }
         }
-        #contact{
-            form{
-                .image{
+
+        #contact {
+            form {
+                .image {
                     text-align: center;
-                    img{
+
+                    img {
                         width: 20%;
                         border-radius: 50%;
                     }
                 }
             }
-        }
-    }
-    footer{
-        margin-top: 2.5rem;
-        #footer-main{
-            font-size: 1.5rem;
-            background-color: lightslategray;
-            nav{
-                padding-top: 1rem;
-                ul{
-                    list-style: none;
-                    margin-top: 1rem;
-                    li{
-                        a{
-                            text-decoration: none;
-                        }
-                    }
-                }
-            }
-            #foot-content{
-                font-size: 2rem;
-                text-align: center;
-                p{
-                    margin: 0;
-                }
-            }
-        }
-        #footer-foot{
-            background-color: rgba(0, 0, 0, 0.67);
-            color: var(--text-white);
-            padding-block: 1rem;
         }
     }
 }
