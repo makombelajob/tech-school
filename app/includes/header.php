@@ -40,10 +40,10 @@
                         </ul>
                         <button type="button" class="btn-close fs-4" aria-label="Close"></button>
                     </div>
-                    <svg class="col col-lg-12" id="theme-switch" width="30" height="30" xmlns:xlink="http://www.w3.org/2000/svg" fill="#e4e453">
+                    <svg class="col col-lg-12 me-0" id="theme-switch" width="30" height="30" xmlns:xlink="http://www.w3.org/2000/svg" fill="#e4e453">
                         <use href="assets/sprites.svg#light"></use>
                     </svg>
-                    <svg class="col d-lg-none" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="burger" width="30" height="30" xmlns:xlink="http://www.w3.org/2000/svg" fill="">
+                    <svg class="col d-lg-none me-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="burger" width="30" height="30" xmlns:xlink="http://www.w3.org/2000/svg" fill="">
                         <use href="assets/sprites.svg#burger"></use>
                     </svg>
 

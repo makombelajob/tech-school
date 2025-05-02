@@ -1,9 +1,11 @@
-<?php require_once 'includes/header.php';
+<?php include_once 'includes/header.php';
 // Verification of the method
 ?>
     <main class="container">
         <section class="row" id="hero">
-            <h1 class="text-center text-uppercase fw-bolder m-3 ">Tech-School</h1>
+            <div class="my-3">
+                <h1 class="text-center text-uppercase fw-bolder m-3 text-primary">Tech-School</h1>
+            </div>
             <div class="carousel slide">
                 <div id="carousel" class="carousel slide">
                     <div class="carousel-indicators">
@@ -52,8 +54,8 @@
             </div>
         </section>
         <section id="card" class="row justify-content-between">
-            <div class="text-center my-3">
-                <h2 class="fs-1 text-uppercase my-3">A propos de nous</h2>
+            <div class=" my-3">
+                <h2 class="fs-1 text-center text-uppercase my-3 text-primary">A propos de nous</h2>
             </div>
             <article class="col-md-5 card mb-3">
                 <img class="card-image" src="assets/real/pixlr-image-generator-0436f8d9-4481-4bf6-aec0-ddbed88917.png" alt="Image des écoliers">
@@ -98,7 +100,7 @@
         </section>
         <section class="row" id="activity">
             <div class="text-center my-3">
-                <h2 class="fs-1 text-uppercase my-3">Nos activités</h2>
+                <h2 class="fs-1 text-uppercase my-3 text-primary">Nos activités</h2>
             </div>
             <div class="col-md-12" id="school-activity"  >
                 <div class="row justify-content-between">
@@ -116,7 +118,7 @@
 
                     <article class="col-md-3 card mb-3 text-center" id="game" >
                         <div>
-                            <svg class="py-3" width="100" height="100" xmlns:xlink="http://www.w3.org/2000/svg" fill="">
+                            <svg class="py-3" width="100" height="100" xmlns:xlink="http://www.w3.org/2000/svg" stroke="white">
                                 <use href="assets/sprites.svg#game"></use>
                             </svg>
                         </div>
@@ -128,7 +130,7 @@
 
                     <article class="col-md-3 card mb-3 text-center" id="plane">
                         <div>
-                            <svg class="py-3" width="100" height="100" xmlns:xlink="http://www.w3.org/2000/svg" fill="">
+                            <svg class="py-3" width="100" height="100" xmlns:xlink="http://www.w3.org/2000/svg">
                                 <use href="assets/sprites.svg#plane"></use>
                             </svg>
                         </div>
@@ -177,7 +179,7 @@
         </section>
         <section id="partenaire" class="row text-center">
             <div class="col-12 my-3">
-                <h2 class="fs-1 text-uppercase my-3">Nos parténaires</h2>
+                <h2 class="fs-1 text-uppercase my-3 text-primary">Nos parténaires</h2>
             </div>
             <article class="col-md-4 m-auto">
                 <figure class="">
@@ -271,18 +273,18 @@
             </div>
         </section>
         <section id="localisation" class="row">
-            <div class="col-12">
-                <h2>Notre Localisation</h2>
+            <div class="col-12 text-center my-3">
+                <h2 class="fs-1 text-uppercase my-3 text-primary">Notre Localisation</h2>
             </div>
             <div class="col">
                 <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1180.3638968604653!2d1.41786956102765!3d43.5928610896005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb096cd919bb%3A0xf67e848219a8fcbf!2zQXLDqG5lcw!5e0!3m2!1sen!2sfr!4v1742394580402!5m2!1sen!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
         <section id="contact" class="row">
-            <div class="col-12">
-                <h2>Nous contacter</h2>
+            <div class="col-12 text-center my-3">
+                <h2 class="fs-1 text-uppercase my-3 text-primary">Nous contacter</h2>
             </div>
-            <form action="" method="post" id="formContact" class="col-12 col-md-10 m-auto">
+            <form action="" method="post" id="formContact" class="col-12 col-md-10 m-auto alert alert-primary rounded-5">
                 <div class="image">
                     <img src="assets/Logo.png" alt="Logo du site">
                 </div>
@@ -319,12 +321,6 @@
                 </div>
             </form>
         </section>
-        <div class="position-fixed bottom-0 end-0 m-4">
-            <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="lightblue" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
-                </svg>
-            </a>
-        </div>
+        <?php include_once 'includes/upButton.php';?>
     </main>
-<?php require_once 'includes/footer.php'; ?>
+<?php include_once 'includes/footer.php'; ?>

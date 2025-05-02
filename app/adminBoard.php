@@ -166,6 +166,7 @@ $teachers = $stmt->fetchAll();
                     </div>
                 </div>
             </section>
-        </div>  
+        </div>
+        <?php include_once 'includes/upButton.php';?>
     </main>
 <?php include_once 'includes/footer.php';?>

@@ -3,12 +3,12 @@ session_start();
 include_once 'includes/header.php';
 ?>
 <main class="container">
-    <div class="row h-100">
+    <div class="row min-vh-100 d-flex justify-content-center align-items-center">
         <section>
-            <h1 class="fs-1 text-center text-uppercase my-3 fw-bolder">Inscription</h1>
+            <h1 class="fs-1 text-center text-uppercase fw-bolder">Login</h1>
             <?php include_once 'includes/flash_message.php';?>
             <?php include_once 'includes/flash_errors.php';?>
-            <form action="login_treatment.php" id="formSignup" method="post">
+            <form action="login_treatment.php" id="formSignup" method="post" class="alert alert-primary">
                 <div id="emailField">
                     <label class="form-label fs-1 my-3" for="email">Email</label>
                     <input class="form-control fs-2" type="text" id="email" placeholder="Entrez votre email" name="email">
@@ -28,7 +28,7 @@ include_once 'includes/header.php';
                     </select>
                 </div>
                 <div class="text-center my-3">
-                    <button id="submit" type="submit" class="btn btn-primary fs-1">Envoyer</button>
+                    <button id="submit" type="submit" class="btn btn-primary fs-1">Connexion</button>
                 </div>
             </form>
         </section>
