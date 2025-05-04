@@ -15,38 +15,44 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <figure class="element active">
+                            <figure class="element active position-relative">
                                 <img class="d-block w-100" src="assets/Slide/pixlr-image-generator-0436f8d9-4481-4bf6-aec0-ddbed88917a7.png" alt="Image du slide" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice">
-                                <figcaption class="carousel-caption">
-                                    <h2 class="text-black fs-3">tech-School</h2>
-                                    <p class="text-black fs-3">Lorem ipsum dolor sit amet.</p>
+                                <figcaption class="carousel-caption top-50 start-50 translate-middle d-flex  align-items-center justify-content-center">
+                                    <div class="alert alert-primary">
+                                        <h2 class="text-black fs-3 m-0 p-0 text-uppercase fw-semibold">tech-School</h2>
+                                        <p class="text-black fs-3 m-0 p-0">Lorem ipsum dolor sit amet.</p>
+                                    </div>
                                 </figcaption>
                             </figure>
                         </div>
                         <div class="carousel-item">
-                            <figure class="element active">
+                            <figure class="element active position-relative">
                                 <img class="d-block w-100" src="assets/Slide/pixlr-image-generator-c62676bf-e07b-463c-912f-f5da2115b396.png" alt="Image du slide" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice">
-                                <figcaption class="carousel-caption">
-                                    <h2 class="text-black fs-3">tech-School</h2>
-                                    <p class="text-black fs-3">Lorem ipsum dolor sit amet.</p>
+                                <figcaption class="carousel-caption top-50 start-50 translate-middle d-flex  align-items-center justify-content-center">
+                                    <div class="alert alert-primary">
+                                        <h2 class="text-black fs-3 m-0 p-0 text-uppercase fw-semibold">tech-School</h2>
+                                        <p class="text-black fs-3 m-0 p-0">Lorem ipsum dolor sit amet.</p>
+                                    </div>
                                 </figcaption>
                             </figure>
                         </div>
                         <div class="carousel-item">
-                            <figure class="element active">
+                            <figure class="element active position-relative">
                                 <img class="d-block w-100" src="assets/Slide/pixlr-image-generator-f34d016c-c9d2-4688-a45b-b00be01b0c32.png" alt="Image du slide" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice">
-                                <figcaption class="carousel-caption">
-                                    <h2 class="text-black fs-3">tech-School</h2>
-                                    <p class="text-black fs-3">Lorem ipsum dolor sit amet.</p>
+                                <figcaption class="carousel-caption top-50 start-50 translate-middle d-flex  align-items-center justify-content-center">
+                                    <div class="alert alert-primary">
+                                        <h2 class="text-black fs-3 m-0 p-0 text-uppercase fw-semibold">tech-School</h2>
+                                        <p class="text-black fs-3 m-0 p-0">Lorem ipsum dolor sit amet.</p>
+                                    </div>
                                 </figcaption>
                             </figure>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev" id="left">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next" id="right">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -63,7 +69,7 @@
                     <h2 class="card-title fs-1">Titre</h2>
                     <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, nemo.</p>
                     <div class="text-center my-2">
-                        <a class=" fs-3 btn btn-primary" href="#">Savoir plus</a>
+                        <a class=" fs-3 btn btn-primary" href="about.php">Savoir plus</a>
                     </div>
                 </div>
             </article>
@@ -73,7 +79,7 @@
                     <h2 class="card-title fs-1">Titre</h2>
                     <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, nemo.</p>
                     <div class="text-center my-2">
-                        <a class=" fs-3 btn btn-primary" href="#">Savoir plus</a>
+                        <a class=" fs-3 btn btn-primary" href="about.php">Savoir plus</a>
                     </div>
                 </div>
             </article>
@@ -83,7 +89,7 @@
                     <h2 class="card-title fs-1">Titre</h2>
                     <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, nemo.</p>
                     <div class="text-center my-2">
-                        <a class=" fs-3 btn btn-primary" href="#">Savoir plus</a>
+                        <a class=" fs-3 btn btn-primary" href="about.php">Savoir plus</a>
                     </div>
                 </div>
             </article>
@@ -93,7 +99,7 @@
                     <h2 class="card-title fs-1">Titre</h2>
                     <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, nemo.</p>
                     <div class="text-center my-2">
-                        <a class=" fs-3 btn btn-primary" href="#">Savoir plus</a>
+                        <a class=" fs-3 btn btn-primary" href="about.php">Savoir plus</a>
                     </div>
                 </div>
             </article>

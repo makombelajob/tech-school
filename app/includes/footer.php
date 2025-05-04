@@ -7,7 +7,7 @@
                     <li class="col col-md pe-0"><a class="text-decoration-none text-secondary fs-3" href="about.php">A_propos</a></li>
                     <li class="col col-md pe-0"><a class="text-decoration-none text-secondary fs-3" href="login.php">Login</a></li>
                     <li class="col col-md pe-0"><a class="text-decoration-none text-secondary fs-3" href="signup.php">Signup</a></li>
-                    <li class="col col-md pe-0"><a class="text-decoration-none text-secondary fs-3" href="#contact">Contacter</a></li>
+                    <li class="col col-md pe-0"><a class="text-decoration-none text-secondary fs-3" href="../index.php#contact">Contacter</a></li>
                 </div>
             </ul>
         </nav>
