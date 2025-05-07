@@ -1,5 +1,14 @@
 <?php
 include_once 'includes/verify_session.php';
+
+require_once 'includes/dbconnect.php';
+$sql = 'SELECT Result.grade, Result.remarque, Course.* FROM Result INNER JOIN Course ON Result.course_id = Course.course_id WHERE Result.user_id = :id;';
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+if ($stmt->execute()) {
+    $resultUsers = $stmt->fetchAll();
+}
+
 include_once 'includes/header.php';
 ?>
 <main class="container">
@@ -7,7 +16,8 @@ include_once 'includes/header.php';
         <div class="col m-1">
             <form action="logout.php" method="post">
                 <button class="btn btn-danger rounded-5 ms-auto" type="submit">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-power" viewBox="0 0 16 16">
                         <path d="M7.5 1v7h1V1z"/>
                         <path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812"/>
                     </svg>
@@ -15,60 +25,47 @@ include_once 'includes/header.php';
             </form>
         </div>
         <section class="col-12" id="students_infos">
-            <h1>Bienvenu <span class="text-uppercase text-primary"><?= $_SESSION['user']['lastname'] . ' ' . $_SESSION['user']['firstname'];?></span></h1>
+            <h1>Bienvenu <span
+                        class="text-uppercase text-primary"><?= $_SESSION['user']['lastname'] . ' ' . $_SESSION['user']['firstname']; ?></span>
+            </h1>
             <article class="text-center bg-warning rounded-2">
                 <h2>Informations générales</h2>
                 <p class="fs-2">Prochaines vacances du 05 mai au 15 mai</p>
             </article>
             <div class="col-12">
-                <article class="bg-secondary text-white text-center p-2">
-                    <h2>Nom : <span><?= $_SESSION['user']['lastname'];?></span></h2>
-                    <h2>Prénom : <span><?= $_SESSION['user']['firstname'];?></span></h2>
+                <article class="alert alert-primary">
+                    <h2 class="fs-1"><span
+                                class="text-uppercase"><?= $_SESSION['user']['lastname']; ?> </span> <?= $_SESSION['user']['firstname']; ?>
+                    </h2>
                     <h3>Class: 1ère</h3>
-                    <h4>Identifiant : <?= $_SESSION['user']['id'];?></h4>
                 </article>
-                <article class="alert alert-info rounded-5 p-3 my-3">
-                    <h2>Cours 1 <span>10/20</span></h2>
-                    <h2>Cours 2 <span>10/20</span></h2>
-                    <h2>Cours 3 <span>10/20</span></h2>
-                    <h2>Cours 4 <span>10/20</span></h2>
-                </article>
+                <?php if (!empty($resultUsers)) : ?>
+                    <?php foreach ($resultUsers as $resultUser) : ?>
+                        <article class="alert alert-info rounded-5 p-3 my-3">
+                            <h2><?= $resultUser['name'] ?? ''; ?> : <?= $resultUser['grade'] ?? ''; ?> / 20</h2>
+                        </article>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <article class="alert alert-info rounded-5 p-3 my-3">
+                        <h2>Aucun_cours_suivis : -- / 20</h2>
+                    </article>
+                <?php endif; ?>
             </div>
         </section>
         <section class="col-12" id="courses_details">
             <h2 class="text-center text-uppercase fs-1 my-3">Remarques</h2>
-            <article class="alert alert-danger p-2">
-                <h2 class="">Cours_1 : <span>11/20</span></h2>
-                <aside class="">
-                    <h3 class="fs-3">Remarques</h3>
-                    <p class="fs-3 text-danger">Tu dois t'améliorer sur partie 2 du cours.</p>
-                    <p class="fs-3 text-primary">L'erreur 3 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>
-                </aside>
-            </article>
-            <article class="alert alert-danger p-2">
-                <h2>Cours_2 : <span>11/20</span></h2>
-                <aside>
-                    <h3 class="fs-3">Remarques</h3>
-                    <p class="fs-3 text-danger">Tu dois t'améliorer sur partie 2 du cours.</p>
-                    <p class="fs-3 text-primary">L'erreur 3 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>
-                </aside>
-            </article>
-            <article class="alert alert-danger p-2">
-                <h2>Cours_3 : <span>11/20</span></h2>
-                <aside>
-                    <h3 class="fs-3">Remarques</h3>
-                    <p class="fs-3 text-danger">Tu dois t'améliorer sur partie 2 du cours.</p>
-                    <p class="fs-3 text-primary">L'erreur 3 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>
-                </aside>
-            </article>
-            <article class="alert alert-danger p-2">
-                <h2>Cours_4 : <span>11/20</span></h2>
-                <aside>
-                    <h3 class="fs-3">Remarques</h3>
-                    <p class="fs-3 text-danger">Tu dois t'améliorer sur partie 2 du cours.</p>
-                    <p class="fs-3 text-primary">L'erreur 3 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>
-                </aside>
-            </article>
+            <?php if (!empty($resultUsers)) : ?>
+                <?php foreach ($resultUsers as $resultUser) : ?>
+                    <article class="alert alert-danger rounded-5 p-3 my-3">
+                        <h2><?= $resultUser['name'] ?? ''; ?></h2>
+                        <?= $resultUser['remarque'] ?? ''; ?>
+                    </article>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <article class="alert alert-info rounded-5 p-3 my-3">
+                    <h2>Aucun_cours_suivis : -- / 20</h2>
+                </article>
+            <?php endif; ?>
         </section>
         <section class="col-12">
             <h2 class="fs-1 text-center text-uppercase my-3">Contactez la secrétaire</h2>
@@ -86,7 +83,7 @@ include_once 'includes/header.php';
                     <textarea class="form-control fs-2" name="message" id="message" cols="30" rows="10"></textarea>
                 </div>
                 <div class="text-center my-3">
-                    <button class="btn btn-primary fs-2" type="submit" >Envoyer</button>
+                    <button class="btn btn-primary fs-2" type="submit">Envoyer</button>
                 </div>
             </form>
         </section>

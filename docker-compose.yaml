@@ -35,29 +35,6 @@ services:
         depends_on:
             -   database
     
-    postgresql:
-        image: bitnami/postgresql
-        container_name: postgres_tech_school
-        environment:
-            POSTGRES_USER: adminUser
-            POSTGRES_PASSWORD: adminUser7791
-            POSTGRES_DB: techSchool
-        ports:
-            - "5432:5432"
-        volumes:
-            - ./postgres:/bitnami/postgresql
-    
-    pgadmin:
-        image: dpage/pgadmin4
-        container_name: pgadmin_tech_school
-        environment:
-            PGADMIN_DEFAULT_EMAIL: admin@techschool.fr
-            PGADMIN_DEFAULT_PASSWORD: adminTechSchool
-        ports:
-            -   "8082:80"
-        depends_on:
-            -   postgresql
-    
     mail_hog:
         image: mailhog/mailhog
         container_name: mailhog_tech_school

@@ -17,7 +17,7 @@ export function themeDark(){
 		
 		themeSwitch.querySelector("use").href.baseVal = iconTheme;
 		
-		const CSSFile = (currentTheme === "light") ? "style.css" : "styles-dark.css";
+		const CSSFile = (currentTheme === "light") ? "style.old_css_style" : "styles-dark.old_css_style";
 		
 		const linkStyle = document.querySelector("#style");
 		linkStyle.href = `css/${CSSFile}`;
