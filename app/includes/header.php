@@ -12,7 +12,7 @@
             rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="../old_css_style/stylesheet.css?v=1.3"> -->
-    <link rel="stylesheet" href="../css/style.css?v=1.8">
+    <link rel="stylesheet" href="../css/style.css?v=2.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../Js/script.js?v=1.3" type="module"></script>
     <title>tech-school</title>
@@ -37,9 +37,9 @@
                                    href="../">Accueil</a></li>
                             <li><a class="text-decoration-none fs-4 text-black p-2 dropdown-item" href="../about.php">A
                                     propos</a></li>
-                            <li><a class="text-decoration-none fs-4 text-black p-2 dropdown-item" href="../login.php">Login</a>
-                            </li>
                             <li><a class="text-decoration-none fs-4 text-black p-2 dropdown-item" href="../signup.php">Signup</a>
+                            </li>
+                            <li><a class="text-decoration-none fs-4 text-black p-2 dropdown-item" href="../login.php">Login</a>
                             </li>
                             <li><a class="text-decoration-none fs-4 text-black p-2 dropdown-item"
                                    href="../index.php#contact">Contacter</a></li>

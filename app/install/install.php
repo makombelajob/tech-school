@@ -8,185 +8,125 @@ function createTable($pdo): void
         "DROP DATABASE IF EXISTS techSchool;",
         "CREATE DATABASE techSchool;",
         "USE techSchool;",
-        "
-        CREATE TABLE IF NOT EXISTS Category (
-        category_id INT PRIMARY KEY AUTO_INCREMENT,
-        name VARCHAR(50)
-    );
-
-    CREATE TABLE IF NOT EXISTS Role (
+        // Table Resource
+        "CREATE TABLE IF NOT EXISTS Resource (
+        resource_id INT PRIMARY KEY AUTO_INCREMENT,
+        file_name VARCHAR(50) NOT NULL,
+        file_type VARCHAR(50) NOT NULL,
+        uploaded_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );",
+        // Table Role
+        "CREATE TABLE IF NOT EXISTS Role (
         role_id INT PRIMARY KEY AUTO_INCREMENT,
-        name VARCHAR(50),
-        level INT
-    );
+        name VARCHAR(50) NOT NULL,
+        level INT NOT NULL
+    );",
+        // Table Subject
+        "CREATE TABLE IF NOT EXISTS Subject (
+        subject_id INT PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(50) NOT NULL
+    );",
+        // Table Period
+        "CREATE TABLE IF NOT EXISTS Period (
+        period_id INT PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(50) NOT NULL
+    );",
 
-    CREATE TABLE IF NOT EXISTS User (
+        // Table Class
+        "CREATE TABLE IF NOT EXISTS Class (
+        class_id INT PRIMARY KEY AUTO_INCREMENT,
+        class_name VARCHAR(50) NOT NULL,
+        level VARCHAR(50) NOT NULL,
+        period_id INT NOT NULL,
+        FOREIGN KEY (period_id) REFERENCES Period(period_id)
+    );",
+
+
+        // Table User
+        "CREATE TABLE IF NOT EXISTS User (
         user_id INT PRIMARY KEY AUTO_INCREMENT,
         lastname VARCHAR(50) NOT NULL,
         firstname VARCHAR(50) NOT NULL,
         email VARCHAR(100) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL,
-        created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        registration_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
         last_login DATETIME,
-        reset_token VARCHAR(32),
+        class_id INT,
         role_id INT NOT NULL,
+        FOREIGN KEY (class_id) REFERENCES Class(class_id),
         FOREIGN KEY (role_id) REFERENCES Role(role_id)
-    );
+    );",
 
-    CREATE TABLE IF NOT EXISTS Course (
+        // Table Course
+        "CREATE TABLE IF NOT EXISTS Course (
         course_id INT PRIMARY KEY AUTO_INCREMENT,
-        name VARCHAR(50) NOT NULL,
+        course_name VARCHAR(50) NOT NULL,
         coefficient DECIMAL(15,2) NOT NULL,
-        type VARCHAR(50) NOT NULL
-    );
-
-    CREATE TABLE IF NOT EXISTS Schedule (
-        session_id INT PRIMARY KEY AUTO_INCREMENT,
-        day DATETIME NOT NULL,
-        session_start DATETIME NOT NULL,
-        session_end DATETIME NOT NULL,
+        day VARCHAR(50) NOT NULL,
+        started_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        end_at DATETIME NOT NULL,
         room INT NOT NULL,
-        course_id INT NOT NULL,
-        FOREIGN KEY (course_id) REFERENCES Course(course_id)
-    );
+        subject_id INT NOT NULL,
+        class_id INT NOT NULL,
+        FOREIGN KEY (subject_id) REFERENCES Subject(subject_id),
+        FOREIGN KEY (class_id) REFERENCES Class(class_id)
+    );",
 
-    CREATE TABLE IF NOT EXISTS Resource (
-        resource_id INT PRIMARY KEY AUTO_INCREMENT,
-        file_name VARCHAR(50),
-        file_type VARCHAR(50),
-        upload_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
-    );
 
-    CREATE TABLE IF NOT EXISTS Class (
-        class_id INT PRIMARY KEY AUTO_INCREMENT,
-        class_name VARCHAR(50) NOT NULL,
-        level VARCHAR(50) NOT NULL,
-        school_year VARCHAR(50) NOT NULL,
-        course_id INT NOT NULL,
-        FOREIGN KEY (course_id) REFERENCES Course(course_id)
-    );
-
-    CREATE TABLE IF NOT EXISTS Result (
+        // Table Result
+        "CREATE TABLE IF NOT EXISTS Result (
         result_id INT PRIMARY KEY AUTO_INCREMENT,
         grade INT NOT NULL,
-        monthly INT,
-        yearly INT,
+        monthly INT NOT NULL,
+        yearly INT NOT NULL,
+        remark VARCHAR(1000) NOT NULL,
         user_id INT NOT NULL,
         course_id INT NOT NULL,
-        remarque VARCHAR(1000) NOT NULL,
         FOREIGN KEY (user_id) REFERENCES User(user_id),
         FOREIGN KEY (course_id) REFERENCES Course(course_id)
-    );
+    );",
 
-    CREATE TABLE IF NOT EXISTS Payment (
+        // Table Payment
+        "CREATE TABLE IF NOT EXISTS Payment (
         payment_id INT PRIMARY KEY AUTO_INCREMENT,
         amount INT NOT NULL,
-        date_ DATETIME,
+        paid_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
         method VARCHAR(50) NOT NULL,
         status VARCHAR(50) NOT NULL,
         type VARCHAR(50) NOT NULL,
-        period VARCHAR(100) NOT NULL,
         user_id INT NOT NULL,
         FOREIGN KEY (user_id) REFERENCES User(user_id)
-    );
+    );",
 
-    CREATE TABLE IF NOT EXISTS Access (
+        // Table Access (Course-Resource relation)
+        "CREATE TABLE IF NOT EXISTS Access (
         course_id INT NOT NULL,
         resource_id INT NOT NULL,
         PRIMARY KEY (course_id, resource_id),
         FOREIGN KEY (course_id) REFERENCES Course(course_id),
         FOREIGN KEY (resource_id) REFERENCES Resource(resource_id)
-    );
+    );",
 
-    CREATE TABLE IF NOT EXISTS Belong (
-        user_id INT NOT NULL,
-        class_id INT NOT NULL,
-        PRIMARY KEY (user_id, class_id),
-        FOREIGN KEY (user_id) REFERENCES User(user_id),
-        FOREIGN KEY (class_id) REFERENCES Class(class_id)
-    );
-
-    CREATE TABLE IF NOT EXISTS BelongTo (
-        course_id INT NOT NULL,
-        category_id INT NOT NULL,
-        PRIMARY KEY (course_id, category_id),
-        FOREIGN KEY (course_id) REFERENCES Course(course_id),
-        FOREIGN KEY (category_id) REFERENCES Category(category_id)
-    );
-
-    CREATE TABLE IF NOT EXISTS Teach (
+        // Table Teach (User-Course relation)
+        "CREATE TABLE IF NOT EXISTS Teach (
         user_id INT NOT NULL,
         course_id INT NOT NULL,
         PRIMARY KEY (user_id, course_id),
         FOREIGN KEY (user_id) REFERENCES User(user_id),
         FOREIGN KEY (course_id) REFERENCES Course(course_id)
-    )"
-    ];
+    );",
 
+        // Table Effect (Payment-Period relation)
+        "CREATE TABLE IF NOT EXISTS Effect (
+        payment_id INT NOT NULL,
+        period_id INT NOT NULL,
+        PRIMARY KEY (payment_id, period_id),
+        FOREIGN KEY (payment_id) REFERENCES Payment(payment_id),
+        FOREIGN KEY (period_id) REFERENCES Period(period_id)
+    );"
+    ];
     foreach ($queries as $query) {
         $pdo->exec($query);
-    }
-}
-
-function insertCategory($pdo): void
-{
-    // Insert into Category table
-    $categories = [
-        ['Computer Science'],
-        ['Sports'],
-        ['Cooking'],
-        ['Travel'],
-        ['Education']
-    ];
-    $stmt = $pdo->prepare("INSERT INTO Category (name) VALUES (?)");
-    foreach ($categories as $category) {
-        $stmt->execute($category);
-    }
-}
-
-function insetRole($pdo): void
-{
-    // Insert into Role table
-    $roles = [
-        ['administrator', 99],
-        ['teacher', 70],
-        ['parent', 50],
-        ['student', 30]
-    ];
-    $stmt = $pdo->prepare("INSERT INTO Role ( name, level) VALUES (?, ?)");
-    foreach ($roles as $role) {
-        $stmt->execute($role);
-    }
-}
-
-function insertCourse($pdo): void
-{
-    // Insert into Course table
-    $courses = [
-        ['Mathematics', 3.00, 'Theory'],
-        ['Physics', 2.50, 'Practical'],
-        ['Computer Science', 4.00, 'Theory'],
-        ['Chemistry', 2.00, 'Practical'],
-        ['History', 1.50, 'Theory'],
-        ['English', 2.00, 'Theory'],
-        ['Biology', 3.00, 'Practical'],
-        ['Economics', 1.00, 'Theory'],
-        ['Philosophy', 1.50, 'Theory'],
-        ['Geography', 2.00, 'Practical'],
-        ['French', 2.50, 'Theory'],
-        ['Sociology', 1.50, 'Theory'],
-        ['Arts', 1.00, 'Practical'],
-        ['Music', 2.00, 'Practical'],
-        ['Sports', 1.00, 'Practical'],
-        ['Psychology', 2.00, 'Theory'],
-        ['Law', 3.50, 'Theory'],
-        ['Management', 2.00, 'Theory'],
-        ['Literature', 1.50, 'Theory'],
-        ['Pharmacy', 2.00, 'Practical']
-    ];
-    $stmt = $pdo->prepare("INSERT INTO Course (name, coefficient, type) VALUES (?, ?, ?)");
-    foreach ($courses as $course) {
-        $stmt->execute($course);
     }
 }
 
@@ -205,29 +145,47 @@ function insertRessource($pdo): void
     }
 }
 
-function insertIntoResult($pdo)
+function insetRole($pdo): void
 {
-    $results = [
-        [8, 24, 9, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
-         <p class="fs-3 text-primary">L\'erreur 3 vient du fait que tu as à la base utiliser une mauvaise formule </p>'],
-        [10, 24, 5, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
-         <p class="fs-3 text-primary">L\'erreur 1 et 9 vient du fait que tu as à la base utiliser une mauvaise formule </p>'],
-        [10, 24, 2, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
-         <p class="fs-3 text-primary">L\'erreur 10 et 7 vient du fait que tu as à la base utiliser une mauvaise formule </p>'],
-        [12, 20, 8, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
-         <p class="fs-3 text-primary">L\'erreur 6, 4 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>'],
-        [15, 19, 10, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
-         <p class="fs-3 text-primary">L\'erreur 7, 5 et 10 vient du fait que tu as à la base utiliser une mauvaise formule </p>'],
-        [7, 17, 1, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
-         <p class="fs-3 text-primary">L\'erreur 1, 2, 3 et 9vient du fait que tu as à la base utiliser une mauvaise formule </p>'],
-        [10, 20, 4, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
-         <p class="fs-3 text-primary">L\'erreur 7, 10 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>'],
-        [11, 23, 2, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
-         <p class="fs-3 text-primary">L\'erreur 1, 2 et 8 vient du fait que tu as à la base utiliser une mauvaise formule </p>']
+    // Insert into Role table
+    $roles = [
+        ['administrator', 99],
+        ['teacher', 70],
+        ['parent', 50],
+        ['student', 30]
     ];
-    $stmt = $pdo->prepare("INSERT INTO Result (grade, user_id, course_id, remarque) VALUES ( ?, ?, ?, ?)");
-    foreach ($results as $result) {
-        $stmt->execute($result);
+    $stmt = $pdo->prepare("INSERT INTO Role ( name, level) VALUES (?, ?)");
+    foreach ($roles as $role) {
+        $stmt->execute($role);
+    }
+}
+
+function insertSubject($pdo): void
+{
+    // Insert into Category table
+    $subjects = [
+        ['Computer Science'],
+        ['Sports'],
+        ['Cooking'],
+        ['Travel'],
+        ['Education']
+    ];
+    $stmt = $pdo->prepare("INSERT INTO Subject (name) VALUES (?)");
+    foreach ($subjects as $subject) {
+        $stmt->execute($subject);
+    }
+}
+
+function insertIntoPeriod($pdo): void
+{
+    $periods = [
+        ['année 2023'],
+        ['année 2024'],
+        ['année 2026']
+    ];
+    $stmt = $pdo->prepare("INSERT INTO Period(name) VALUES (?)");
+    foreach ($periods as $period) {
+        $stmt->execute($period);
     }
 }
 
@@ -235,28 +193,45 @@ function insertClasse($pdo): void
 {
     // Insert into Class table
     $classes = [
-        ['Class A', 'First Year', '2025-2026', 1],
-        ['Class B', 'Final Year', '2025-2026', 2]
+        ['Class A', 'First Year', 1],
+        ['Class B', 'middle Year', 2],
+        ['Class C', 'Final Year', 3]
     ];
 
-    $stmt = $pdo->prepare("INSERT INTO Class (class_name, level, school_year, course_id) VALUES ( ?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO Class (class_name, level, period_id) VALUES ( ?, ?, ?)");
     foreach ($classes as $class) {
         $stmt->execute($class);
     }
 }
 
-function insertSchedule($pdo): void
+function insertCourse($pdo): void
 {
-    // Insert into Schedule table
-    $schedules = [
-        ['2025-04-01', '2025-04-01 09:00:00', '2025-04-01 12:00:00', 101, 1],
-        ['2025-04-02', '2025-04-02 14:00:00', '2025-04-02 17:00:00', 102, 2]
-        // Add other schedules...
+    // Insert into Course table
+    $courses = [
+        ['Mathematics', 3.00, 'Lundi', '2025-04-01 10:00:00', 1, 1, 1],
+        ['Physics', 2.50, 'Mardi', '2025-04-01 10:00:00', 1, 2, 2],
+        ['Computer Science', 4.00, 'Mercredi', '2025-04-01 10:00:00', 1, 3, 2],
+        ['Chemistry', 2.00, 'Jeudi', '2025-04-01 09:00:00', 1, 1, 1],
+        ['History', 1.50, 'Jeudi', '2025-04-01 12:00:00', 1, 1, 1],
+        ['English', 2.00, 'Vendredi', '2025-04-01 12:00:00', 1, 2, 1],
+        ['Biology', 3.00, 'Mardi', '2025-04-01 12:00:00', 1, 2, 1],
+        ['Economics', 1.00, 'Mardi', '2025-04-01 10:00:00', 2, 2, 1],
+        ['Philosophy', 1.50, 'Mercredi', '2025-04-01 10:00:00', 2, 2, 2],
+        ['Geography', 2.00, 'Mardi', '2025-04-01 10:00:00', 2, 2, 2],
+        ['French', 2.50, 'Lundi', '2025-04-01 15:00:00', 2, 2, 2],
+        ['Sociology', 1.50, 'Jeudi', '2025-04-01 15:00:00', 2, 3, 2],
+        ['Arts', 1.00, 'Jeudi', '2025-04-01 15:00:00', 3, 3, 2],
+        ['Music', 2.00, 'Jeudi', '2025-04-01 15:00:00', 3, 3, 2],
+        ['Sports', 1.00, 'Mercredi', '2025-04-01 15:00:00', 3, 3, 2],
+        ['Psychology', 2.00, 'Mardi', '2025-04-01 11:00:00', 3, 4, 2],
+        ['Law', 3.50, 'Vendredi', '2025-04-01 11:00:00', 3, 4, 2],
+        ['Management', 2.00, 'Mercredi', '2025-04-01 11:00:00', 3, 4, 2],
+        ['Literature', 1.50, 'Lundi', '2025-04-01 11:00:00', 3, 5, 2],
+        ['Pharmacy', 2.00, 'Mardi', '2025-04-01 11:00:00', 3, 5, 2]
     ];
-
-    $stmt = $pdo->prepare("INSERT INTO Schedule ( day, session_start, session_end, room, course_id) VALUES ( ?, ?, ?, ?, ?)");
-    foreach ($schedules as $schedule) {
-        $stmt->execute($schedule);
+    $stmt = $pdo->prepare("INSERT INTO Course (course_name, coefficient, day, end_at, room, subject_id, class_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    foreach ($courses as $course) {
+        $stmt->execute($course);
     }
 }
 
@@ -264,11 +239,11 @@ function insertUser($pdo): void
 {
     // Insert into User table
     $users = [
-        ['Dupont', 'Pierre', 'pierre.dupont@example.com', '$2y$12$pWm6wSskinocw8ABVxA1GuSE77bt2iFbnZBR/athLYigoiMYwIjRu', 1],
-        ['Durand', 'Marie', 'marie.durand@example.com', '$2y$12$84cnXhpLMTO9loAiSDaVzuJTc2idqjyxWBQamhwXv1FOO66M5UOjm', 2],
-        ['Lemoine', 'Julien', 'julien.lemoine@example.com', '$2y$12$X8k1GKR63aM6t36g48rZLOqtA2UYCuN3NbVPQV1lpMnh1hO2G7QXG', 2],
-        ['Moreau', 'Sophie', 'sophie.moreau@example.com', '$2y$12$K6e5EcCZ/L4RaAuDl6tNNuK2xZ3RT8/0DxCbspU2qUeN72cx7j2jy', 2],
-        ['Martin', 'Alexandre', 'alexandre.martin@example.com', '$2y$12$QGK5upMegmIqJY5Y7wnr9eblRLTYM8hbxpX.de1jlJLr/ypvv7FWu', 2],
+        ['Dupont', 'Pierre', 'pierre.dupont@exae.com', '$2y$12$pWm6wSskinocw8ABVxA1GuSE77bt2iFbnZBR/athLYigoiMYwIjRu', 1],
+        ['Durand', 'Marie', 'marie.durd@exale.com', '$2y$12$84cnXhpLMTO9loAiSDaVzuJTc2idqjyxWBQamhwXv1FOO66M5UOjm', 2],
+        ['Lemoine', 'Julien', 'julien.lemoine@eample.com', '$2y$12$X8k1GKR63aM6t36g48rZLOqtA2UYCuN3NbVPQV1lpMnh1hO2G7QXG', 2],
+        ['Moreau', 'Sophie', 'sophie.moreau@y.com', '$2y$12$K6e5EcCZ/L4RaAuDl6tNNuK2xZ3RT8/0DxCbspU2qUeN72cx7j2jy', 2],
+        ['Martin', 'Alexandre', 'alexandre.martin@exaple.com', '$2y$12$QGK5upMegmIqJY5Y7wnr9eblRLTYM8hbxpX.de1jlJLr/ypvv7FWu', 2],
         ['Petit', 'Isabelle', 'isabelle.petit@example.com', '$2y$12$fjGiaH7yNUyWgE3VZbepxeoo2SW4EyQvesxtk7QSHAAHFrWzPjKyu', 2],
         ['Roux', 'Marc', 'marc.roux@example.com', '$2y$12$QdOAzs94xBOahicgOa5gxO9qf5hih7YjiuGBQXaKOofLf.bbwUk/W', 2],
         ['Lemoine', 'Chloé', 'chloe.lemoine@example.com', '$2y$12$7oXzdPcnCMRF4yfUyH3ll.4bkpE3uKGZqYjVQwzADMFtgrXVWq53S', 3],
@@ -316,20 +291,57 @@ function insertUser($pdo): void
         ['Royer', 'Arnaud', 'arnaud.royer@example.com', '$2y$12$TaZ7C6mZfWBHWFGa/aczi.Dbq2egqW38B7d0pT33Bs1vOJlwa40Bq', 4]
     ];
 
-    $stmt = $pdo->prepare("INSERT INTO User (lastname, firstname, email, password, role_id) VALUES ( ?, ?, ?, ?, ?)");
+    $checkStmt = $pdo->prepare("SELECT COUNT(*) FROM User WHERE email = ?");
+    $insertStmt = $pdo->prepare("INSERT INTO User (lastname, firstname, email, password, role_id) VALUES (?, ?, ?, ?, ?)");
     foreach ($users as $user) {
-        $stmt->execute($user);
+        $email = $user[2];
+
+        // Vérifier si l'email existe déjà
+        $checkStmt->execute([$email]);
+        if ($checkStmt->fetchColumn() === 0) {
+            $insertStmt->execute($user);
+        } else {
+            echo "Utilisateur déjà existant : $email\n";
+        }
+    }
+}
+
+
+function insertIntoResult($pdo): void
+{
+    $results = [
+        [8, 24, 9, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
+         <p class="fs-3 text-primary">L\'erreur 3.0 vient du fait que tu as à la base utiliser une mauvaise formule </p>', 20, 4],
+        [10, 24, 5, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
+         <p class="fs-3 text-primary">L\'erreur 1 et 9 vient du fait que tu as à la base utiliser une mauvaise formule </p>', 20, 10],
+        [10, 24, 2, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
+         <p class="fs-3 text-primary">L\'erreur 10 et 7 vient du fait que tu as à la base utiliser une mauvaise formule </p>', 24, 6],
+        [12, 20, 8, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
+         <p class="fs-3 text-primary">L\'erreur 6, 4 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>', 24, 9],
+        [15, 19, 10, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
+         <p class="fs-3 text-primary">L\'erreur 7, 5 et 10 vient du fait que tu as à la base utiliser une mauvaise formule </p>', 19, 4],
+        [7, 17, 1, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
+         <p class="fs-3 text-primary">L\'erreur 1, 2, 3 et 9vient du fait que tu as à la base utiliser une mauvaise formule </p>', 19, 3],
+        [10, 20, 4, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
+         <p class="fs-3 text-primary">L\'erreur 7, 10 et 5 vient du fait que tu as à la base utiliser une mauvaise formule </p>', 22, 1],
+        [11, 23, 2, '<p class="fs-3 text-danger">Tu dois t\'améliorer sur partie 2 du cours.</p>
+         <p class="fs-3 text-primary">L\'erreur 1, 2 et 8 vient du fait que tu as à la base utiliser une mauvaise formule </p>', 22, 2]
+    ];
+    $stmt = $pdo->prepare("INSERT INTO Result (grade, monthly, yearly, remark, user_id, course_id) VALUES ( ?, ?, ?, ?, ?, ?)");
+    foreach ($results as $result) {
+        $stmt->execute($result);
     }
 }
 
 echo 'BD initialise';
-
 createTable($pdo);
-insertCategory($pdo);
-insetRole($pdo);
-insertUser($pdo);
-insertCourse($pdo);
-insertSchedule($pdo);
 insertRessource($pdo);
+insetRole($pdo);
+insertSubject($pdo);
+insertIntoPeriod($pdo);
+insertIntoPeriod($pdo);
 insertClasse($pdo);
+insertCourse($pdo);
+insertCourse($pdo);
+insertUser($pdo);
 insertIntoResult($pdo);

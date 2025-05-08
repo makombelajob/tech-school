@@ -377,8 +377,9 @@ include_once 'includes/header.php';
             </form>
         </section>
         <?php include_once 'includes/upButton.php'; ?>
+        <?php unset($_SESSION['message']); ?>
+        <?php unset($_SESSION['errors']); ?>
+        <?php unset($_SESSION['data']); ?>
     </main>
-<?php unset($_SESSION['message']); ?>
-<?php unset($_SESSION['errors']); ?>
-<?php unset($_SESSION['data']); ?>
+
 <?php include_once 'includes/footer.php'; ?>
