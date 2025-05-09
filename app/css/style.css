@@ -58,7 +58,7 @@ body main #hero .carousel-control-prev-icon, body main #hero .carousel-control-n
   width: 100%;
   height: 100%;
 }
-body main #partenaire article figure img {
+body main #partenaire div.article figure img {
   width: 20%;
   border-radius: 50%;
   object-fit: cover;

@@ -27,9 +27,9 @@ include_once 'includes/header.php';
                                      preserveAspectRatio="xMidYMid slice">
                                 <figcaption
                                         class="carousel-caption top-50 start-50 translate-middle d-flex  align-items-center justify-content-center">
-                                    <div class="alert alert-primary">
+                                    <div class="alert alert-danger">
                                         <h2 class="text-black fs-3 m-0 p-0 text-uppercase fw-semibold">tech-School</h2>
-                                        <p class="text-black fs-3 m-0 p-0">Lorem ipsum dolor sit amet.</p>
+                                        <p class="text-black fs-3 m-0 p-0">Innovation et réussite pour tous.</p>
                                     </div>
                                 </figcaption>
                             </figure>
@@ -42,9 +42,9 @@ include_once 'includes/header.php';
                                      preserveAspectRatio="xMidYMid slice">
                                 <figcaption
                                         class="carousel-caption top-50 start-50 translate-middle d-flex  align-items-center justify-content-center">
-                                    <div class="alert alert-primary">
+                                    <div class="alert alert-info">
                                         <h2 class="text-black fs-3 m-0 p-0 text-uppercase fw-semibold">tech-School</h2>
-                                        <p class="text-black fs-3 m-0 p-0">Lorem ipsum dolor sit amet.</p>
+                                        <p class="text-black fs-3 m-0 p-0">Un cadre propice aux apprentissages.</p>
                                     </div>
                                 </figcaption>
                             </figure>
@@ -57,9 +57,9 @@ include_once 'includes/header.php';
                                      preserveAspectRatio="xMidYMid slice">
                                 <figcaption
                                         class="carousel-caption top-50 start-50 translate-middle d-flex  align-items-center justify-content-center">
-                                    <div class="alert alert-primary">
+                                    <div class="alert alert-warning">
                                         <h2 class="text-black fs-3 m-0 p-0 text-uppercase fw-semibold">tech-School</h2>
-                                        <p class="text-black fs-3 m-0 p-0">Lorem ipsum dolor sit amet.</p>
+                                        <p class="text-black fs-3 m-0 p-0">Savoir, respect et épanouissement.</p>
                                     </div>
                                 </figcaption>
                             </figure>
@@ -86,8 +86,8 @@ include_once 'includes/header.php';
                 <img class="card-image" src="assets/real/pixlr-image-generator-0436f8d9-4481-4bf6-aec0-ddbed88917.png"
                      alt="Image des écoliers">
                 <div class="card-body">
-                    <h2 class="card-title fs-1">Titre</h2>
-                    <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, nemo.</p>
+                    <h2 class="card-title fs-2 text-uppercase">Notre Mission</h2>
+                    <p class="card-text fs-3">Offrir un accès numérique simple à l’éducation pour tous.</p>
                     <div class="text-center my-2">
                         <a class=" fs-3 btn btn-primary" href="about.php">Savoir plus</a>
                     </div>
@@ -97,8 +97,8 @@ include_once 'includes/header.php';
                 <img class="card-image" src="assets/real/pixlr-image-generator-0436f8d9-4481-4bf6-aec0-ddbed88916.png"
                      alt="Image des écoliers">
                 <div class="card-body">
-                    <h2 class="card-title fs-1">Titre</h2>
-                    <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, nemo.</p>
+                    <h2 class="card-title fs-2 text-uppercase">Notre équipe</h2>
+                    <p class="card-text fs-3">Des experts passionnés par l’innovation dans le domaine éducatif.</p>
                     <div class="text-center my-2">
                         <a class=" fs-3 btn btn-primary" href="about.php">Savoir plus</a>
                     </div>
@@ -108,8 +108,8 @@ include_once 'includes/header.php';
                 <img class="card-image" src="assets/real/pixlr-image-generator-0436f8d9-4481-4bf6-aec0-ddbed88913.png"
                      alt="Image des écoliers">
                 <div class="card-body">
-                    <h2 class="card-title fs-1">Titre</h2>
-                    <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, nemo.</p>
+                    <h2 class="card-title fs-2 text-uppercase">Notre plateforme</h2>
+                    <p class="card-text fs-3">Un espace sécurisé, collaboratif et accessible pour chaque élève.</p>
                     <div class="text-center my-2">
                         <a class=" fs-3 btn btn-primary" href="about.php">Savoir plus</a>
                     </div>
@@ -119,8 +119,9 @@ include_once 'includes/header.php';
                 <img class="card-image" src="assets/real/pixlr-image-generator-0436f8d9-4481-4bf6-aec0-ddbed88916.png"
                      alt="Image des écoliers">
                 <div class="card-body">
-                    <h2 class="card-title fs-1">Titre</h2>
-                    <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, nemo.</p>
+                    <h2 class="card-title fs-2 text-uppercase">Nos valeurs</h2>
+                    <p class="card-text fs-3">Inclusion, innovation, engagement et excellence au service des
+                        apprenants.</p>
                     <div class="text-center my-2">
                         <a class=" fs-3 btn btn-primary" href="about.php">Savoir plus</a>
                     </div>
@@ -140,36 +141,34 @@ include_once 'includes/header.php';
                             </svg>
                         </div>
                         <div class="card-body">
-                            <h2 class="card-title fs-1">Titre</h2>
-                            <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit,
-                                nemo.</p>
+                            <h2 class="card-title fs-1">Sciences et découvertes</h2>
+                            <p class="card-text fs-4">Explorer le monde avec curiosité, logique et méthode.</p>
                         </div>
                     </article>
 
                     <article class="col-md-3 alert alert-danger mb-3 text-center" id="game">
                         <div>
-                            <svg class="py-3" width="100" height="100"
-                                 stroke="white">
-                                <use href="assets/sprites.svg#game"></use>
+                            <svg class="py-3" width="100" height="100">
+                                <use href="assets/sprites.svg#present"></use>
                             </svg>
                         </div>
                         <div class="card-body">
-                            <h2 class="card-title fs-1">Titre</h2>
-                            <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit,
-                                nemo.</p>
+                            <h2 class="card-title fs-1">Enseignement interactif</h2>
+                            <p class="card-text fs-4">Apprendre ensemble grâce à des cours vivants et engageants.</p>
                         </div>
                     </article>
 
                     <article class="col-md-3 alert alert-info mb-3 text-center" id="plane">
                         <div>
-                            <svg class="py-3" width="100" height="100">
-                                <use href="assets/sprites.svg#plane"></use>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="dodgerblue"
+                                 class="bi bi-people-fill" viewBox="0 0 16 16">
+                                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
                             </svg>
+
                         </div>
                         <div class="card-body">
-                            <h2 class="card-title fs-1">Titre</h2>
-                            <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit,
-                                nemo.</p>
+                            <h2 class="card-title fs-1">Travail collaboratif</h2>
+                            <p class="card-text fs-4">Développer l'esprit d'équipe à travers des projets communs.</p>
                         </div>
                     </article>
                 </div>
@@ -181,96 +180,110 @@ include_once 'includes/header.php';
                             </svg>
                         </div>
                         <div class="card-body">
-                            <h2 class="card-title fs-1">Titre</h2>
-                            <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit,
-                                nemo.</p>
+                            <h2 class="card-title fs-1">Activités sportives</h2>
+                            <p class="card-text fs-4">Éveiller le corps et l’esprit par le jeu et le mouvement.</p>
                         </div>
                     </article>
                     <article class="col-md-3 alert alert-success mb-3 text-center" id="walk">
                         <div>
-                            <svg class="py-3" width="100" height="100" fill="">
-                                <use href="assets/sprites.svg#walk"></use>
+                            <svg class="py-3" width="100" height="100"
+                                 stroke="white" fill="darkblue">
+                                <use href="assets/sprites.svg#game"></use>
                             </svg>
                         </div>
                         <div class="card-body">
-                            <h2 class="card-title fs-1">Titre</h2>
-                            <p class="card-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit,
-                                nemo.</p>
+                            <h2 class="card-title fs-1">Esprit stratégique</h2>
+                            <p class="card-text fs-4">Stimuler la réflexion par des jeux logiques et tactiques.</p>
                         </div>
                     </article>
                     <article class="col-md-3 alert alert-dark mb-3 text-center" id="swim2">
                         <div>
-                            <svg class="py-3" width="100" height="100" fill="">
-                                <use href="assets/sprites.svg#swim"></use>
+                            <svg class="py-3" width="100" height="100">
+                                <use href="assets/sprites.svg#plane"></use>
                             </svg>
                         </div>
                         <div class="car-body">
-                            <h2 class="card-title fs-1">Titre</h2>
-                            <p class="car-text fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit,
-                                nemo.</p>
+                            <h2 class="card-title fs-1"> Ouverture sur le monde</h2>
+                            <p class="car-text fs-4">Découvrir d’autres cultures et élargir ses horizons.</p>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
-        <section id="partenaire" class="row text-center">
+        <section id="partenaire" class="row text-center g-3 justify-content-between">
             <div class="col-12 my-3">
                 <h2 class="fs-1 text-uppercase my-3 text-primary">Nos parténaires</h2>
             </div>
-            <article class="col-md-4 m-auto">
-                <figure class="">
-                    <img class="" src="assets/partenaire/image1.png" alt="logo d'un partenaire">
-                    <figcaption class="">
-                        <h3>Partenaires-Wead</h3>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-md-4 my-3">
-                <figure class="">
-                    <img class="" src="assets/partenaire/image2.png" alt="logo d'un partenaire">
-                    <figcaption class="">
-                        <h3>Partenaires-Wead</h3>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-md-4 my-3">
-                <figure class="">
-                    <img class="" src="assets/partenaire/image3.png" alt="logo d'un partenaire">
-                    <figcaption class="">
-                        <h3>Partenaires-Wead</h3>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-md-4 my-3">
-                <figure class="">
-                    <img class="" src="assets/partenaire/image4.png" alt="logo d'un partenaire">
-                    <figcaption class="">
-                        <h3>Partenaires-Wead</h3>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-md-4 my-3">
-                <figure class="">
-                    <img class="" src="assets/partenaire/image5.png" alt="logo d'un partenaire">
-                    <figcaption class="">
-                        <h3>Partenaires-Wead</h3>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-md-4 my-3">
-                <figure class="">
-                    <img class="" src="assets/partenaire/image6.png" alt="logo d'un partenaire">
-                    <figcaption class="">
-                        <h3>Partenaires-Wead</h3>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </figcaption>
-                </figure>
-            </article>
+            <div class="row g-3 justify-content-between">
+                <div class="col-md-4 col-lg-3  article">
+                    <div class="alert alert-secondary rounded-5">
+                        <figure class="">
+                            <img class="" src="assets/partenaire/image1.png" alt="logo d'un partenaire">
+                            <figcaption class="">
+                                <h3 class="fs-2">EduConnect</h3>
+                                <p class="fs-4">Technologie éducative.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 my-3  article">
+                    <div class="alert alert-secondary rounded-5">
+                        <figure class="">
+                            <img class="" src="assets/partenaire/image2.png" alt="logo d'un partenaire">
+                            <figcaption class="m-0">
+                                <h3 class="fs-2">Livreo</h3>
+                                <p class="fs-4">Ressources pédagogiques.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 my-3 article">
+                    <div class=" alert alert-secondary rounded-5 ">
+                        <figure class="">
+                            <img class="" src="assets/partenaire/image3.png" alt="logo d'un partenaire">
+                            <figcaption class="">
+                                <h3 class="fs-2">InnoClass</h3>
+                                <p class="fs-4">Solutions innovantes.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 justify-content-between">
+                <div class="col-md-4 col-lg-3  my-3 article">
+                    <div class="alert alert-secondary rounded-5">
+                        <figure class="">
+                            <img class="" src="assets/partenaire/image4.png" alt="logo d'un partenaire">
+                            <figcaption class="">
+                                <h3 class="fs-2">GlobaLearn</h3>
+                                <p class="fs-4">Apprentissage interculturel.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3  my-3 article">
+                    <div class=" alert alert-secondary rounded-5">
+                        <figure class="">
+                            <img class="" src="assets/partenaire/image5.png" alt="logo d'un partenaire">
+                            <figcaption class="">
+                                <h3 class="fs-2">SkillCraft</h3>
+                                <p class="fs-4">Développement pratique.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3  my-3  article">
+                    <div class="alert alert-secondary rounded-5">
+                        <figure class="">
+                            <img class="" src="assets/partenaire/image6.png" alt="logo d'un partenaire">
+                            <figcaption class="">
+                                <h3 class="fs-2">CampusLink</h3>
+                                <p class="fs-4">Ecole d'excellence.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
         </section>
         <section id="equip" class="row">
             <div class="col-12 text-center">
